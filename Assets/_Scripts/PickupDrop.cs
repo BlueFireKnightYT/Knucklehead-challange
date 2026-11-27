@@ -14,8 +14,8 @@ public class PickupDrop : MonoBehaviour
     bool hasItemLeft = false;
     bool hasItemRight = false;
 
-    GameObject heldItemLeft;
-    GameObject heldItemRight;
+    public GameObject heldItemLeft;
+    public GameObject heldItemRight;
 
     [Header("Raycast")]
     RaycastHit hit;
