@@ -28,7 +28,7 @@ public class PickupDrop : MonoBehaviour
     {
         cam = GameObject.FindGameObjectWithTag("MainCamera");
     }
-    void PickupItem(Direction hand)
+    public void PickupItem(Direction hand)
     {
         //shoots raycast
         bool hasHit = Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, pickupDistance, pickupLayer);
@@ -72,7 +72,7 @@ public class PickupDrop : MonoBehaviour
 
     }
 
-    void Dropitem(Direction hand)
+    public void DropItem(Direction hand)
     {
         GameObject dropitem = null;
 
@@ -84,6 +84,7 @@ public class PickupDrop : MonoBehaviour
                 dropitem = heldItemLeft;
                 //Makes hasitem false
                 hasItemLeft = false;
+                heldItemLeft = null;
             }
         }
         else
@@ -93,6 +94,7 @@ public class PickupDrop : MonoBehaviour
                 dropitem = heldItemRight;
                 //Makes hasitem false
                 hasItemRight = false;
+                heldItemRight = null;
             }
         }
         //unchilds the object in hand
@@ -116,7 +118,7 @@ public class PickupDrop : MonoBehaviour
         else if(context.performed && hasItemLeft)
         {
 
-            Dropitem(activeHand);
+            DropItem(activeHand);
         }
     }
 
@@ -132,7 +134,7 @@ public class PickupDrop : MonoBehaviour
         }
         else if (context.performed && hasItemRight)
         {
-            Dropitem(activeHand);
+            DropItem(activeHand);
         }
     }
 }

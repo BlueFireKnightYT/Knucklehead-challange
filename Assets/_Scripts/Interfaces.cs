@@ -2,5 +2,5 @@ using UnityEngine;
 
 public interface IUsable
 {
-    void UseItem();
+    void UseItem(Direction hand, PickupDrop pickupScript);
 }

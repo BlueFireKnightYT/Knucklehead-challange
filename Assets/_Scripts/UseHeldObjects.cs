@@ -8,6 +8,7 @@ public class UseHeldObjects : MonoBehaviour
     IUsable useInterface;
     //reference pickup script
     PickupDrop pickup;
+    Direction hand;
     private void Start()
     {
         //get the pickup script
@@ -18,6 +19,8 @@ public class UseHeldObjects : MonoBehaviour
     {
         //get left held object from pickup script
         GameObject heldLeft = pickup.heldItemLeft;
+        hand = Direction.Left;
+
         //call useobject
         UseObject(heldLeft);
     }
@@ -26,6 +29,8 @@ public class UseHeldObjects : MonoBehaviour
     {
         //Get  right held object from pickup script
         GameObject heldRight = pickup.heldItemRight;
+        hand = Direction.Right;
+
         //call useobject
         UseObject(heldRight);
     }
@@ -38,7 +43,7 @@ public class UseHeldObjects : MonoBehaviour
             //get interface from object
             useInterface = heldObject.GetComponent<IUsable>();
             //call interface.UseItem
-            useInterface.UseItem();
+            useInterface.UseItem(hand, pickup);
         }
     }
 }

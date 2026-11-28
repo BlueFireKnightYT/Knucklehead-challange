@@ -18,7 +18,7 @@ public class Flashlight : MonoBehaviour, IUsable
             light.enabled = false;
         }
     }
-    public void UseItem()
+    public void UseItem(Direction hand, PickupDrop pickup)
     {
         //if isOn = true
         if(isOn)
@@ -36,7 +36,5 @@ public class Flashlight : MonoBehaviour, IUsable
             //set isOn to true
             isOn = true;
         }
-
-
     }
 }
